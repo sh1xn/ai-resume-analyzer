@@ -1304,9 +1304,9 @@ html.lenis body{
 
     transform:translate(-50%,-50%);
 
-    width:1050px;
+    width:2150px;
 
-    max-width:85vw;
+    max-width:none;
 
     height:auto;
 
@@ -1316,10 +1316,10 @@ html.lenis body{
 
     mix-blend-mode:lighten;
 
-    opacity:0.16;
+    opacity:0.46;
 
     filter:
-    blur(4px)
+    blur(10px)
     saturate(1)
     brightness(0.72);
 
@@ -1342,7 +1342,7 @@ html.lenis body{
 
     object-fit:contain;
 
-    opacity:0.9;
+    opacity:1;
 }
 
 /* MAIN LARGE CENTER CRYSTAL */
@@ -1354,9 +1354,9 @@ html.lenis body{
 
     transform:
     translate(-50%,-50%)
-    scale(1.18);
-
-    opacity:0.18;
+    scale(5.18);
+    filter: blur(12px);
+    opacity:0.22;
 }
 /* SECOND SOFT AMBIENT CRYSTAL */
 
