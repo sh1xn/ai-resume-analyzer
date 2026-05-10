@@ -1304,7 +1304,7 @@ html.lenis body{
 
     transform:translate(-50%,-50%);
 
-    width:1400px;
+    width:1100px;
     height:auto;
 
     z-index:-2;
@@ -1313,11 +1313,11 @@ html.lenis body{
 
     mix-blend-mode:screen;
 
-    opacity:0.32;
+    opacity:0.82;
 
     filter:
-    blur(14px)
-    saturate(1.1)
+    blur(6px)
+    saturate(1)
     brightness(0.9);
 
     animation:
@@ -1330,6 +1330,12 @@ html.lenis body{
     height:auto;
 
     object-fit:contain;
+    width:100%;
+    height:auto;
+
+    object-fit:contain;
+
+    opacity:0.9;
 }
 
 /* MAIN LARGE CENTER CRYSTAL */
@@ -1341,9 +1347,8 @@ html.lenis body{
 
     transform:
     translate(-50%,-50%)
-    scale(1.45);
-
-    opacity:0.38;
+    scale(1.65);
+    opacity:0.24;
 }
 
 /* SECOND SOFT AMBIENT CRYSTAL */
@@ -1355,10 +1360,10 @@ html.lenis body{
 
     transform:
     translate(-50%,-50%)
-    scale(1.2)
+    scale(0.95)
     rotate(180deg);
 
-    opacity:0.12;
+    opacity:0.05;
 }
 
 @keyframes crystalFloat{
