@@ -1304,24 +1304,31 @@ html.lenis body{
 
     transform:translate(-50%,-50%);
 
-    width:1100px;
+    width:1050px;
+
+    max-width:85vw;
+
     height:auto;
 
     z-index:-2;
 
     pointer-events:none;
 
-    mix-blend-mode:screen;
+    mix-blend-mode:lighten;
 
-    opacity:0.82;
+    opacity:0.16;
 
     filter:
-    blur(6px)
+    blur(4px)
     saturate(1)
-    brightness(0.9);
+    brightness(0.72);
 
     animation:
     crystalFloat 10s ease-in-out infinite;
+
+    will-change:transform;
+
+    backface-visibility:hidden;
 }
 
 .floating-crystal video{
@@ -1347,10 +1354,10 @@ html.lenis body{
 
     transform:
     translate(-50%,-50%)
-    scale(1.65);
-    opacity:0.24;
-}
+    scale(1.18);
 
+    opacity:0.18;
+}
 /* SECOND SOFT AMBIENT CRYSTAL */
 
 .crystal-2{
