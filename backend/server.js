@@ -22,7 +22,7 @@ const groq = new Groq({
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "C:/Users/KIIT/OneDrive/Desktop/tempUploads/");
+        cb(null, "uploads/");
     },
 
     filename: (req, file, cb) => {
@@ -185,7 +185,8 @@ ${text}
 
 // ================= SERVER =================
 
-app.listen(5000, () => {
+const PORT = process.env.PORT || 5000;
 
-    console.log("Server running on port 5000");
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
