@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const multer = require("multer");
 const cors = require("cors");
@@ -8,6 +9,10 @@ const Groq = require("groq-sdk");
 require("dotenv").config();
 
 const app = express();
+
+app.get("/api/analyze", (req, res) => {
+    res.json({ message: "API WORKING" });
+});
 
 app.use(cors());
 app.use(express.json());
@@ -20,21 +25,13 @@ const groq = new Groq({
 
 // ================= FILE STORAGE =================
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, "uploads/");
-    },
-
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + "-" + file.originalname);
-    }
+const upload = multer({
+    storage: multer.memoryStorage()
 });
-
-const upload = multer({ storage });
 
 // ================= ANALYZE ROUTE =================
 
-app.post("/analyze", upload.single("resume"), async (req, res) => {
+app.post("/api/analyze", upload.single("resume"), async (req, res) => {
 
     try {
 
@@ -54,7 +51,7 @@ app.post("/analyze", upload.single("resume"), async (req, res) => {
 
         if (file.mimetype === "application/pdf") {
 
-            const dataBuffer = fs.readFileSync(file.path);
+            const dataBuffer = file.buffer;
 
             const pdfData = await pdfParse(dataBuffer);
 
@@ -69,7 +66,7 @@ app.post("/analyze", upload.single("resume"), async (req, res) => {
         ) {
 
             const result = await mammoth.extractRawText({
-                path: file.path
+                buffer: file.buffer
             });
 
             resumeText = result.value;
@@ -84,7 +81,6 @@ app.post("/analyze", upload.single("resume"), async (req, res) => {
 
         // DELETE FILE AFTER EXTRACTION
 
-        fs.unlinkSync(file.path);
 
         // ================= AI PROMPT =================
 
@@ -185,8 +181,4 @@ ${text}
 
 // ================= SERVER =================
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+module.exports = app;

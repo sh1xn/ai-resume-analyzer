@@ -152,7 +152,7 @@ grammarBtn.addEventListener(
 
                 const response =
                     await fetch(
-                        "https://ai-resume-analyzer-production-655c.up.railway.app/analyze",
+                        "/api/analyze",
                         {
                             method: "POST",
                             body: formData
