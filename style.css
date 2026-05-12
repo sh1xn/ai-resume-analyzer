@@ -1527,4 +1527,31 @@ body.light-mode .floating-crystal{
 body.light-mode .blur{
   display:none;
 }
+/* ================= MOBILE VIEW BG FIX================= */
 
+@media (max-width:768px){
+
+  .desktop-only,
+  #bg-video,
+  .floating-crystal,
+  .floating-crystal video,
+  .blur,
+  .blur1,
+  .blur2,
+  .blur3{
+    display:none !important;
+  }
+
+  body:not(.light-mode){
+    background:#020617 !important;
+  }
+
+  body.light-mode{
+    background:#f8fafc !important;
+  }
+
+  body::before{
+    display:none !important;
+  }
+
+}
