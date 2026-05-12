@@ -1360,20 +1360,24 @@ body{
     0%{
         transform:
         translate(-50%,-50%)
+        scale(1.11)
         translateY(0px);
     }
 
     50%{
         transform:
         translate(-50%,-50%)
+        scale(1.11)
         translateY(-22px);
     }
 
     100%{
         transform:
         translate(-50%,-50%)
+        scale(1.11)
         translateY(0px);
     }
+
 }
 /* ================= CLEAN RESULT STYLE ================= */
 
@@ -1425,3 +1429,102 @@ body{
 
     margin-top:8px;
 }
+
+/* ================= SAFE MOBILE FIXES ================= */
+
+@media (max-width:768px){
+
+  .section{
+    min-height:auto !important;
+    padding-top:30px !important;
+    padding-bottom:30px !important;
+  }
+
+  .hero{
+    padding-top:180px !important;
+  }
+
+}
+
+@media (max-width:768px){
+
+  .navbar{
+    top:12px;
+    left:12px;
+    right:12px;
+    width:auto;
+    transform:none;
+    padding:14px 18px;
+    border-radius:28px;
+    overflow:visible;
+  }
+
+  .hero{
+    padding-top:180px;
+  }
+
+  .section{
+    min-height:auto;
+    padding-bottom:20px;
+  }
+
+  .card{
+    gap:16px;
+  }
+
+  .floating-crystal{
+    width:850px;
+    opacity:0.12;
+    filter:blur(5px);
+  }
+
+  .crystal-1{
+    transform:
+    translate(-50%,-50%)
+    scale(2.5);
+  }
+
+  .blur{
+    filter:blur(70px);
+    opacity:0.18;
+  }
+
+  .navbar:hover,
+  .card:hover,
+  .analyze-btn:hover{
+    transform:none;
+  }
+
+}
+
+@media (max-width:768px){
+
+  .contact-card{
+    width:100%;
+    padding:24px 18px;
+    overflow:hidden;
+  }
+
+  .contact-card p{
+    font-size:1.05rem;
+    line-height:1.7;
+
+    overflow-wrap:break-word;
+    word-wrap:break-word;
+    word-break:break-word;
+
+    max-width:100%;
+  }
+
+}
+
+/* ================= LIGHT MODE CLEANUP ================= */
+
+body.light-mode .floating-crystal{
+  display:none;
+}
+
+body.light-mode .blur{
+  display:none;
+}
+
